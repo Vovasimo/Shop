@@ -3,7 +3,8 @@ public class Cheese extends Item {
         super(name, price, description);
     }
 
-    public Cheese(Float price, String description) {
-        super("Cheese", price, description);
+    @Override
+    public String toString() {
+        return "cheese, " + name + ", " + price + ", " + description;
     }
 }

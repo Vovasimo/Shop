@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class Shop {
     ArrayList<Item> list;
+    String dataFileName;
 
-    public void show(){
-        System.out.println("List of items: \n");
-        for(int i = 0;i!=list.size();i++){
-            System.out.println(list.get(i).toString());
-        }
+    public Shop(String dataFileName) {
+        this.list = DataController.readFromFile(dataFileName);
+        this.dataFileName = dataFileName;
     }
 }
