@@ -13,7 +13,7 @@ public class DataController {
     public static ArrayList<Item> readFromFile(String fileName) {
         ArrayList<Item> items = new ArrayList<>();
         try {
-            ArrayList<String> lines = new ArrayList<>(Files.readAllLines(Path.of("src/" + fileName)));
+            ArrayList<String> lines = new ArrayList<>(Files.readAllLines(Paths.get("src/" + fileName)));
             for (String line : lines) {
                 String[] parts = line.split(",");
                 if (parts.length != 4) {
@@ -58,7 +58,7 @@ public class DataController {
 
     public static void removeFromFile(String fileName, Item item) {
         try {
-            ArrayList<String> lines = new ArrayList<>(Files.readAllLines(Path.of("src/" + fileName)));
+            ArrayList<String> lines = new ArrayList<>(Files.readAllLines(Paths.get("src/" + fileName)));
             String itemString = item.toString();
             ArrayList<String> updatedLines = new ArrayList<String>();
 
