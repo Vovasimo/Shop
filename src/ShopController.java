@@ -36,11 +36,7 @@ public class ShopController {
     }
 
     public void removeFromShop(Item item) {
-        for (Item shopItem : shop.list) {
-            if (shopItem == item) {
-                shop.list.remove(item);
-            }
-        }
+        shop.list.removeIf(shopItem -> shopItem.equals(item));
         DataController.removeFromFile(shop.dataFileName, item);
     }
 
