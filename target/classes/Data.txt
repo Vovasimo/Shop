@@ -1,0 +1,5 @@
+yogurt, Greek, 3.69, Traditional yogurt from Greece
+milk, Almond Milk, 8.49, Lactose-free alternative
+cheese, Parmeggiano, 2.99, Italian cheese
+yogurt, Yogurt, 1.69, Basic Yogurt
+milk, Milk, 3.99, AAAAAAAAA
