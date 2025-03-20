@@ -1,0 +1,114 @@
+[
+    {
+        "price": 5.99,
+        "name": "Cheddar",
+        "description": "Aged and flavorful cheese",
+        "id": 1023,
+        "type": "cheese"
+    },
+    {
+        "price": 6.49,
+        "name": "Gouda",
+        "description": "Dutch cheese with a rich taste",
+        "id": 3948,
+        "type": "cheese"
+    },
+    {
+        "price": 2.99,
+        "name": "Whole Milk",
+        "description": "Fresh and full-fat milk",
+        "id": 8271,
+        "type": "milk"
+    },
+    {
+        "price": 5.49,
+        "name": "Greek Yogurt",
+        "description": "Thick and protein-rich yogurt",
+        "id": 5620,
+        "type": "yogurt"
+    },
+    {
+        "price": 2.49,
+        "name": "Skim Milk",
+        "description": "Fat-free healthy milk",
+        "id": 7355,
+        "type": "milk"
+    },
+    {
+        "price": 3.99,
+        "name": "Almond Milk",
+        "description": "Plant-based alternative",
+        "id": 2198,
+        "type": "milk"
+    },
+    {
+        "price": 7.99,
+        "name": "Brie",
+        "description": "Soft and creamy French cheese",
+        "id": 4783,
+        "type": "cheese"
+    },
+    {
+        "price": 8.99,
+        "name": "Parmesan",
+        "description": "Hard cheese with nutty flavor",
+        "id": 8412,
+        "type": "cheese"
+    },
+    {
+        "price": 3.99,
+        "name": "Vanilla Yogurt",
+        "description": "Sweet and smooth yogurt",
+        "id": 1290,
+        "type": "yogurt"
+    },
+    {
+        "price": 4.49,
+        "name": "Strawberry Yogurt",
+        "description": "Fruity and delicious",
+        "id": 6725,
+        "type": "yogurt"
+    },
+    {
+        "price": 4.29,
+        "name": "Oat Milk",
+        "description": "Creamy oat-based milk",
+        "id": 3056,
+        "type": "milk"
+    },
+    {
+        "price": 4.79,
+        "name": "Blueberry Yogurt",
+        "description": "With real blueberries",
+        "id": 9147,
+        "type": "yogurt"
+    },
+    {
+        "price": 5.99,
+        "name": "Coconut Yogurt",
+        "description": "Exotic coconut flavor",
+        "id": 5678,
+        "type": "yogurt"
+    },
+    {
+        "price": 7.89,
+        "name": "ZZZ",
+        "description": "Something about this milk",
+        "id": 1322,
+        "type": "Milk"
+    },
+    {
+        "price": 7.89,
+        "name": "ZZZ",
+        "description": "Something about this milk",
+        "id": 1322,
+        "type": "Milk"
+    },
+    {
+        "price": 7.89,
+        "name": "ZZZ",
+        "description": "Something about this milk",
+        "id": 1322,
+        "type": "Milk"
+    }
+]
