@@ -15,7 +15,7 @@ public class Cart {
         return sum;
     }
 
-    public ArrayList<Item> show() {
+    public void show() {
         for (Item item : list) {
             System.out.println(item.toString());
         }

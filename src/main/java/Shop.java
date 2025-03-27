@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Shop {
     private ArrayList<Item> list;
+    FileManagerService managerService = new FileManagerService();
     String dataFileName;
 
     public Shop(String dataFileName) {
@@ -17,6 +18,6 @@ public class Shop {
 
     public void update(){
         this.list = ItemService.loadItems(dataFileName);
-        System.out.println("\nFile was UPDATED!\n");
+        System.out.println("\nList was UPDATED!\n");
     }
 }
