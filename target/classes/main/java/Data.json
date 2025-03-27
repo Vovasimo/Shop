@@ -110,12 +110,5 @@
         "description": "Something about this milk",
         "id": 1322,
         "type": "Milk"
-    },
-    {
-        "price": 7.89,
-        "name": "ZZZ",
-        "description": "Something about this milk",
-        "id": 1322,
-        "type": "milk"
     }
 ]
