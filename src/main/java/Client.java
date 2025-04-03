@@ -1,9 +1,17 @@
 public class Client {
-    private Integer id;
+    private String id;
     private String name;
     private String email;
+    private Cart cart;
 
-    public Integer getId() {
+    public Client(String id, String email, String name) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.cart = new Cart();
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -13,5 +21,9 @@ public class Client {
 
     public String getEmail() {
         return email;
+    }
+
+    public Cart getCart(){
+        return cart;
     }
 }

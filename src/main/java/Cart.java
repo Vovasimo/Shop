@@ -24,8 +24,4 @@ public class Cart {
     public ArrayList<Item> getList() {
         return list;
     }
-
-    public void setList(ArrayList<Item> list) {
-        this.list = list;
-    }
 }

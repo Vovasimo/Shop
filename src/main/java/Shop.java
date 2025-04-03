@@ -2,11 +2,12 @@ import java.util.ArrayList;
 
 public class Shop {
     private ArrayList<Item> list;
-    FileManagerService managerService = new FileManagerService();
+    private ArrayList<Client> clients;
     String dataFileName;
 
     public Shop(String dataFileName) {
         this.list = ItemService.loadItems(dataFileName);
+        this.clients = ClientService.loadClients(dataFileName);
         this.dataFileName = dataFileName;
     }
 
@@ -18,6 +19,11 @@ public class Shop {
 
     public void update(){
         this.list = ItemService.loadItems(dataFileName);
+        this.clients = ClientService.loadClients(dataFileName);
         System.out.println("\nList was UPDATED!\n");
+    }
+
+    public ArrayList<Client> getClients() {
+        return clients;
     }
 }

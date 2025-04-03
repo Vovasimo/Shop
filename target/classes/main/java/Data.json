@@ -14,11 +14,25 @@
         "type": "cheese"
     },
     {
+        "price": 2.99,
+        "name": "Whole Milk",
+        "description": "Fresh and full-fat milk",
+        "id": 8271,
+        "type": "milk"
+    },
+    {
         "price": 5.49,
         "name": "Greek Yogurt",
         "description": "Thick and protein-rich yogurt",
         "id": 5620,
         "type": "yogurt"
+    },
+    {
+        "price": 2.49,
+        "name": "Skim Milk",
+        "description": "Fat-free healthy milk",
+        "id": 7355,
+        "type": "milk"
     },
     {
         "price": 3.99,
@@ -56,6 +70,13 @@
         "type": "yogurt"
     },
     {
+        "price": 4.29,
+        "name": "Oat Milk",
+        "description": "Creamy oat-based milk",
+        "id": 3056,
+        "type": "milk"
+    },
+    {
         "price": 4.79,
         "name": "Blueberry Yogurt",
         "description": "With real blueberries",
@@ -68,12 +89,5 @@
         "description": "Exotic coconut flavor",
         "id": 5678,
         "type": "yogurt"
-    },
-    {
-        "price": 664.944,
-        "name": "Black Cheese",
-        "description": "Natural black cheese from Canarian Island",
-        "id": 1232,
-        "type": "cheese"
     }
 ]
