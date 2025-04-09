@@ -1,12 +1,12 @@
 import java.util.Objects;
 
 public abstract class Item {
-    private Integer id;
+    private String id;
     private String name;
     private Float price;
     private String description;
 
-    public Item(Integer id, String name, Float price, String description) {
+    public Item(String id, String name, Float price, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -34,7 +34,7 @@ public abstract class Item {
         return Objects.hash(name, price, description);
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 

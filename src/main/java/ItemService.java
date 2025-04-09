@@ -17,7 +17,7 @@ public class ItemService {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String type = jsonObject.getString("type");
-                Integer id = jsonObject.getInt("id");
+                String id = jsonObject.getString("id");
                 String name = jsonObject.getString("name");
                 Float price = jsonObject.getFloat("price");
                 String description = jsonObject.getString("description");
