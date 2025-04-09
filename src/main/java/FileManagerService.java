@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 public class FileManagerService {
 
-    public JSONObject find(String key, String value, String fileName) {
+    public static JSONObject find(String key, String value, String fileName) {
         try {
             String bytes = new String(Files.readAllBytes(Paths.get(fileName)));
             JSONArray jsonArray = new JSONArray(bytes);
@@ -101,12 +101,12 @@ public class FileManagerService {
         try {
             String bytes = new String(Files.readAllBytes(Paths.get(fileName)));
             JSONArray jsonArray = new JSONArray(bytes);
-            boolean added = false;
+            boolean added = true;
 
             for(int i=0; i < jsonArray.length();i++){
                 if(jsonArray.getJSONObject(i).get("email").equals(email) && jsonArray.getJSONObject(i).get("id").equals(id)){
                     jsonArray.put(object);
-                    added = true;
+                    added = false;
                 }
             }
 

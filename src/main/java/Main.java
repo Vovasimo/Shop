@@ -3,7 +3,8 @@ public class Main {
         System.out.println("WELCOME!");
 
         String fileName = "src/main/java/Data.json";
-        Shop shop = new Shop(fileName);
+        String clientFileName = "src/main/java/Clients.json";
+        Shop shop = new Shop(fileName,clientFileName);
         UserInterfaceService IO = new UserInterfaceService(shop);
         IO.Main();
     }

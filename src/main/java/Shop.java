@@ -4,11 +4,13 @@ public class Shop {
     private ArrayList<Item> list;
     private ArrayList<Client> clients;
     String dataFileName;
+    String clientFileName;
 
-    public Shop(String dataFileName) {
+    public Shop(String dataFileName, String clientFileName) {
         this.list = ItemService.loadItems(dataFileName);
-        this.clients = ClientService.loadClients(dataFileName);
+        this.clients = ClientService.loadClients(clientFileName);
         this.dataFileName = dataFileName;
+        this.clientFileName = clientFileName;
     }
 
     public void show(){
@@ -19,7 +21,7 @@ public class Shop {
 
     public void update(){
         this.list = ItemService.loadItems(dataFileName);
-        this.clients = ClientService.loadClients(dataFileName);
+        this.clients = ClientService.loadClients(clientFileName);
         System.out.println("\nList was UPDATED!\n");
     }
 

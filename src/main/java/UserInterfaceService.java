@@ -1,3 +1,6 @@
+import org.json.JSONObject;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -14,11 +17,11 @@ public class UserInterfaceService {
         boolean exit = false;
         welcome();
 
-        while(!exit){
+        while (!exit) {
             actions();
             System.out.print("Enter option: ");
             String next = scanner.next();
-            switch(next) {
+            switch (next) {
                 case "1":
                     show();
                     break;
@@ -61,7 +64,7 @@ public class UserInterfaceService {
         System.out.println("====================");
     }
 
-    private void show(){
+    private void show() {
         shop.show();
     }
 
@@ -105,13 +108,11 @@ public class UserInterfaceService {
         scanner.nextLine();
         String name = scanner.nextLine();
         System.out.print("Enter email: ");
-        scanner.nextLine();
         String email = scanner.nextLine();
         System.out.print("Enter password: ");
-        scanner.nextLine();
         String password = scanner.nextLine();
-        String fileName = shop.dataFileName;
-        FileManagerService.addClientToJSON(String.format("%04d",shop.getClients().size()+1), email, password, name, fileName);
+        String fileName = shop.clientFileName;
+        FileManagerService.addClientToJSON(String.format("%04d", shop.getClients().size() + 1), email, password, name, fileName);
         shop.update();
     }
 
@@ -120,11 +121,32 @@ public class UserInterfaceService {
         System.out.print("Enter email: ");
         scanner.nextLine();
         String email = scanner.nextLine();
-        System.out.print("Enter password: ");
-        scanner.nextLine();
-        String password = scanner.nextLine();
-        String fileName = shop.dataFileName;
-        FileManagerService.addClientToJSON(String.format("%04d",shop.getClients().size()+1), email, name, fileName);
+        String fileName = shop.clientFileName;
+
+        if (FileManagerService.find("email", email, fileName) != null) {
+            JSONObject findClient = Objects.requireNonNull(FileManagerService.find("email", email, fileName));
+            int findClientPassword = findClient.getInt("password");
+
+            boolean pass = false;
+            while (!pass) {
+                System.out.print("Enter password(Enter '000' to comeback): ");
+                String password = scanner.nextLine();
+                if (Objects.equals(password, "000")) {
+                    pass = true;
+                    break;
+                }
+                if (findClientPassword == password.hashCode()) {
+                    pass = true;
+                    Client client = new Client(findClient.getString("id"), findClient.getString("email"), findClient.getString("name"));
+                    System.out.println("Authentication is finished!!!");
+                } else {
+                    System.out.println("Incorrect password!");
+                }
+            }
+        }else{
+            System.out.println("Incorrect Email!");
+        }
         shop.update();
     }
 }
+
