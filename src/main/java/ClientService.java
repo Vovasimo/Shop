@@ -15,7 +15,6 @@ public class ClientService {
             JSONArray jsonArray = new JSONArray(data);
 
             for (int i = 0; i < jsonArray.length(); i++) {
-                System.out.println(jsonArray.length());
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
                 String email = jsonObject.getString("email");

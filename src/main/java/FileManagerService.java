@@ -101,20 +101,21 @@ public class FileManagerService {
         try {
             String bytes = new String(Files.readAllBytes(Paths.get(fileName)));
             JSONArray jsonArray = new JSONArray(bytes);
-            boolean added = true;
+            boolean exists = false;
 
             for(int i=0; i < jsonArray.length();i++){
                 if(jsonArray.getJSONObject(i).get("email").equals(email) && jsonArray.getJSONObject(i).get("id").equals(id)){
-                    jsonArray.put(object);
-                    added = false;
+                    exists = true;
+                    break;
                 }
             }
 
-            if(added){
+            if(!exists){
+                jsonArray.put(object);
                 Files.write(Paths.get(fileName), jsonArray.toString(4).getBytes());
                 System.out.println("Client added to file");
             }else{
-                System.out.println("Client was already exist");
+                System.out.println("Client already exists");
             }
 
         } catch (IOException e) {

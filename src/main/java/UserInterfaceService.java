@@ -104,15 +104,19 @@ public class UserInterfaceService {
 
     private void registration() {
         System.out.println("REGISTRATION");
+        String fileName = shop.clientFileName;
         System.out.print("Enter name: ");
         scanner.nextLine();
         String name = scanner.nextLine();
         System.out.print("Enter email: ");
         String email = scanner.nextLine();
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
-        String fileName = shop.clientFileName;
-        FileManagerService.addClientToJSON(String.format("%04d", shop.getClients().size() + 1), email, password, name, fileName);
+        if (FileManagerService.find("email", email, fileName) == null) {
+            System.out.print("Enter password: ");
+            String password = scanner.nextLine();
+            FileManagerService.addClientToJSON(String.format("%04d", shop.getClients().size() + 1), email, password, name, fileName);
+        }else{
+            System.out.println("Account exist!");
+        }
         shop.update();
     }
 
@@ -129,9 +133,9 @@ public class UserInterfaceService {
 
             boolean pass = false;
             while (!pass) {
-                System.out.print("Enter password(Enter '000' to comeback): ");
+                System.out.print("Enter password(Enter 'exit' to comeback): ");
                 String password = scanner.nextLine();
-                if (Objects.equals(password, "000")) {
+                if (Objects.equals(password, "exit")) {
                     pass = true;
                     break;
                 }
@@ -144,7 +148,7 @@ public class UserInterfaceService {
                 }
             }
         }else{
-            System.out.println("Incorrect Email!");
+            System.out.println("Not existed Email!");
         }
         shop.update();
     }
