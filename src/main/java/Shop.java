@@ -19,6 +19,14 @@ public class Shop {
         }
     }
 
+    public String showInString(){
+        StringBuilder result = new StringBuilder();
+        for (Item item : list) {
+            result.append(item.toString()).append("/n");
+        }
+        return result.toString();
+    }
+
     public void update(){
         this.list = ItemService.loadItems(dataFileName);
         this.clients = ClientService.loadClients(clientFileName);
@@ -28,4 +36,5 @@ public class Shop {
     public ArrayList<Client> getClients() {
         return clients;
     }
+
 }

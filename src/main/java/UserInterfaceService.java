@@ -1,9 +1,6 @@
 import org.json.JSONObject;
-
 import java.util.Objects;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
 
 public class UserInterfaceService {
     static Scanner scanner = new Scanner(System.in);

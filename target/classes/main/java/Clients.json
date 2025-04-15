@@ -8,7 +8,13 @@
     {
         "password": -1394805554,
         "name": "Momo",
-        "id": "0005",
+        "id": "0002",
         "email": "Mo@gmail.com"
+    },
+    {
+        "password": -1997317522,
+        "name": "Max",
+        "id": "0003",
+        "email": "Maxik12@gmail.com"
     }
 ]
