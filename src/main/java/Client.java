@@ -25,15 +25,23 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             String clientMessage = "";
 
-            while (!clientMessage.equals("exit")) {
-                System.out.println("Server response: ");
-                while(serverMessage != null){
-                    serverMessage = in.readLine();
-                    System.out.println(serverMessage);
+            while (true) {
+                String line;
+                while ((line = in.readLine()) != null) {
+                    System.out.println(line);
+
+                    if (line.trim().toLowerCase().contains("enter")) {
+                        break;
+                    }
                 }
 
+                System.out.print("> ");
                 clientMessage = scanner.nextLine();
                 out.println(clientMessage);
+
+                if (clientMessage.equalsIgnoreCase("exit") || clientMessage.equals("0")) {
+                    break;
+                }
             }
 
             scanner.close();

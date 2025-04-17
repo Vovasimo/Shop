@@ -39,9 +39,11 @@ public class Server {
 
         while (!exit) {
             actions(out);
-            out.print("Enter option: ");
+
+            out.println("Enter option: ");
             String next = in.readLine();
-            System.out.println(next);
+            System.out.println("Client selected: " + next);
+
             switch (next) {
                 case "1":
                     show(out);
@@ -91,15 +93,15 @@ public class Server {
 
     private static void add(BufferedReader in, PrintWriter out) throws IOException {
         out.println("ADD ITEM");
-        out.print("Enter Item type(milk,cheese,yogurt): ");
+        out.println("Enter Item type(milk,cheese,yogurt): ");
         String type = in.readLine();
-        out.print("Enter Item id(example: 9261): ");
+        out.println("Enter Item id(example: 9261): ");
         String id = in.readLine();
-        out.print("Enter Item name: ");
+        out.println("Enter Item name: ");
         String name = in.readLine();
-        out.print("Enter Item price: ");
+        out.println("Enter Item price: ");
         Float price = Float.valueOf(in.readLine());
-        out.print("Enter Item description: ");
+        out.println("Enter Item description: ");
         String description = in.readLine();
         String fileName = shop.dataFileName;
         FileManagerService.addItemToJSON(type, id, name, price, description, fileName);
@@ -108,9 +110,9 @@ public class Server {
 
     private static void remove(BufferedReader in, PrintWriter out) throws IOException {
         out.println("REMOVE ITEM");
-        out.print("Enter Item type(milk,cheese,yogurt): ");
+        out.println("Enter Item type(milk,cheese,yogurt): ");
         String type = in.readLine();
-        out.print("Enter Item id(example: 9261): ");
+        out.println("Enter Item id(example: 9261): ");
         String id = in.readLine();
         String fileName = shop.dataFileName;
         FileManagerService.removeItemFromJSON(type, id, fileName);
@@ -120,12 +122,12 @@ public class Server {
     private static void registration(BufferedReader in, PrintWriter out) throws IOException {
         out.println("REGISTRATION");
         String fileName = shop.clientFileName;
-        out.print("Enter name: ");
+        out.println("Enter name: ");
         String name = in.readLine();
-        out.print("Enter email: ");
+        out.println("Enter email: ");
         String email = in.readLine();
         if (FileManagerService.find("email", email, fileName) == null) {
-            out.print("Enter password: ");
+            out.println("Enter password: ");
             String password = in.readLine();
             FileManagerService.addClientToJSON(String.format("%04d", shop.getClients().size() + 1), email, password, name, fileName);
         }else{
@@ -136,7 +138,7 @@ public class Server {
 
     private static void auth(BufferedReader in, PrintWriter out) throws IOException {
         out.println("AUTHENTICATION");
-        out.print("Enter email: ");
+        out.println("Enter email: ");
         String email = in.readLine();
         String fileName = shop.clientFileName;
 
@@ -146,7 +148,7 @@ public class Server {
 
             boolean pass = false;
             while (!pass) {
-                out.print("Enter password(Enter 'exit' to comeback): ");
+                out.println("Enter password(Enter 'exit' to comeback): ");
                 String password = in.readLine();
                 if (Objects.equals(password, "exit")) {
                     pass = true;

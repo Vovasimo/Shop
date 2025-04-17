@@ -22,7 +22,7 @@ public class Shop {
     public String showInString(){
         StringBuilder result = new StringBuilder();
         for (Item item : list) {
-            result.append(item.toString()).append("/n");
+            result.append(item.toString()).append("\n");
         }
         return result.toString();
     }
