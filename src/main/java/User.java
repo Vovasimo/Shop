@@ -5,18 +5,34 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
-    private String id;
-    private String name;
-    private String email;
-    private Cart cart;
+
+public class User implements Runnable{
     private Socket socket;
+    private Shop shop;
+    private Cart cart;
+    private Client client;
 
-    public static void main(String[] args) throws IOException {
-        String hostName = "localhost";
-        int port = 6666;
+    public User(Socket socket, Shop shop, Cart cart) {
+        this.socket = socket;
+        this.shop = shop;
+        this.cart = cart;
+    }
 
-        try (Socket socket = new Socket(hostName, port)) {
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    @Override
+    public void run() {
+        try {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -26,7 +42,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             String clientMessage = "";
 
-            while (true) {
+            while (!clientMessage.equals("0")) {
                 String line;
                 while ((line = in.readLine()) != null) {
                     System.out.println(line);
@@ -39,46 +55,11 @@ public class Client {
                 System.out.print("> ");
                 clientMessage = scanner.nextLine();
                 out.println(clientMessage);
-
-                if (clientMessage.equalsIgnoreCase("exit") || clientMessage.equals("0")) {
-                    break;
-                }
             }
 
             scanner.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    public Client(String id, String email, String name) {
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.cart = new Cart();
-    }
-
-    public Client(Socket socket, String id, String email, String name) {
-        this.socket = socket;
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.cart = new Cart();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Cart getCart() {
-        return cart;
     }
 }

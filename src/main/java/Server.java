@@ -14,6 +14,7 @@ public class Server {
     static Shop shop;
 
     public Server(int port, Shop shop) throws IOException {
+        this.port = port;
         this.serverSocket = new ServerSocket(port);
         Server.shop = shop;
     }
@@ -24,13 +25,19 @@ public class Server {
         Shop shop = new Shop(fileName,clientFileName);
 
         Server server = new Server(6666, shop);
-        Socket client = server.serverSocket.accept();
+        while(true){
+            Socket userSocket = server.serverSocket.accept();
+            User user = new User(userSocket, shop, new Cart());
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+            Thread thread = new Thread(user);
+            thread.start();
 
-        welcome(out);
-        mainLoop(in,out);
+            BufferedReader in = new BufferedReader(new InputStreamReader(userSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(userSocket.getOutputStream(), true);
+
+            welcome(out);
+            mainLoop(in,out);
+        }
     }
 
     public static void mainLoop(BufferedReader in, PrintWriter out) throws IOException {
