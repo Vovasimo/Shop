@@ -22,20 +22,9 @@ public class ItemService {
                 Float price = jsonObject.getFloat("price");
                 String description = jsonObject.getString("description");
 
-                switch (type) {
-                    case "milk":
-                        resultList.add(new Milk(id, name, price, description));
-                        break;
-                    case "cheese":
-                        resultList.add(new Cheese(id, name, price, description));
-                        break;
-                    case "yogurt":
-                        resultList.add(new Yogurt(id, name, price, description));
-                        break;
-                    default:
-                        System.out.println("Unknown type: " + type);
+
+                resultList.add(new Item(id, name, type, price, description));
                 }
-            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

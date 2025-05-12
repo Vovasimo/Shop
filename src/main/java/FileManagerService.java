@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 public class FileManagerService {
 
-    public static JSONObject find(String key, String value, String fileName) {
+    public static JSONObject findAndReturn(String key, String value, String fileName) {
         try {
             String bytes = new String(Files.readAllBytes(Paths.get(fileName)));
             JSONArray jsonArray = new JSONArray(bytes);
@@ -17,6 +17,26 @@ public class FileManagerService {
                 if(jsonArray.getJSONObject(i).get(key).equals(value)){
                     System.out.println("Object found");
                     return jsonArray.getJSONObject(i);
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public static JSONObject findAndRemoveFromList(String key, String value, String fileName) {
+        try {
+            String bytes = new String(Files.readAllBytes(Paths.get(fileName)));
+            JSONArray jsonArray = new JSONArray(bytes);
+
+            for(int i=0; i < jsonArray.length();i++){
+                if(jsonArray.getJSONObject(i).get(key).equals(value)){
+                    System.out.println("Object found");
+                    JSONObject res = jsonArray.getJSONObject(i);
+                    jsonArray.remove(i);
+                    return res;
                 }
             }
 

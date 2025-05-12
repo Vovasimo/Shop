@@ -3,12 +3,14 @@ import java.util.ArrayList;
 public class Shop {
     private ArrayList<Item> list;
     private ArrayList<Client> clients;
-    String dataFileName;
-    String clientFileName;
+    public CartService cartService;
+    public final String dataFileName;
+    public final String clientFileName;
 
     public Shop(String dataFileName, String clientFileName) {
         this.list = ItemService.loadItems(dataFileName);
         this.clients = ClientService.loadClients(clientFileName);
+        this.cartService = new CartService();
         this.dataFileName = dataFileName;
         this.clientFileName = clientFileName;
     }
@@ -33,6 +35,9 @@ public class Shop {
         System.out.println("\nList was UPDATED!\n");
     }
 
+    public ArrayList<Item> getList() {
+        return list;
+    }
     public ArrayList<Client> getClients() {
         return clients;
     }
