@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Dairy Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar bg-primary navbar-dark px-4">
+    <a class="navbar-brand" href="#">🧀 Online Dairy Shop</a>
+    <a href="cart.html" class="btn btn-light position-relative">
+        <i class="bi bi-cart4"></i> Cart
+        <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none;">
+            0
+        </span>
+    </a>
+</nav>
+
+<div class="container py-4">
+    <div id="products" class="row g-4"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

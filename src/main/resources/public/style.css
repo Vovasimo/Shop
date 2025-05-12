@@ -1,0 +1,23 @@
+.card:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+.btn-add {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card {
+    cursor: pointer;
+}
